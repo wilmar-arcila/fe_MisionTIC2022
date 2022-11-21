@@ -8,23 +8,24 @@ import { SeguridadService } from '../../../servicios/seguridad.service';
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent implements OnInit{
 
-  email:string="";
-  contrasena:string="";
+  email: string='';
+  contrasena: string='';
   constructor(private miServicioSeguridad : SeguridadService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log("LOGIN inicializado")
+    console.log('LOGIN inicializado');
   }
 
   login():void{
-    console.log("aqui"+this.email+" contraseña "+this.contrasena)
+    console.log("aqui"+this.email+" contraseña "+this.contrasena);
   }
   test():void{
-    console.log("TEST");
+    console.log('TEST');
     this.miServicioSeguridad.sayHello();
   }
 
