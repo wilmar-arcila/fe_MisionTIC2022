@@ -17,7 +17,7 @@ export class SeguridadService {
   }
 
   public sayHello() {
-    console.log('>> Say hello to my little friend!');
+    console.debug('>> Say hello to my little friend!');
   }
 
   /**

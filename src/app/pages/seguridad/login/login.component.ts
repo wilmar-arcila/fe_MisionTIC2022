@@ -18,14 +18,14 @@ export class LoginComponent implements OnInit {
   constructor(private miServicioSeguridad: SeguridadService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log('LOGIN inicializado');
+    console.debug('LOGIN inicializado');
   }
 
   login(): void {
-    console.log('aqui' + this.email + ' contraseña ' + this.contrasena);
+    console.debug('aqui' + this.email + ' contraseña ' + this.contrasena);
   }
   test(): void {
-    console.log('TEST');
+    console.debug('TEST');
     this.miServicioSeguridad.sayHello();
   }
 
