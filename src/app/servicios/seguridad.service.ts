@@ -7,8 +7,9 @@ import { Usuario } from '../modelos/usuario.model';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class SeguridadService {
   elUsuario = new BehaviorSubject<Usuario>(new Usuario);
   constructor(private http: HttpClient, private router: Router) { 
@@ -16,7 +17,7 @@ export class SeguridadService {
   }
 
   public sayHello(){
-    console.log('>> Say hello to my little friend!')
+    console.log('>> Say hello to my little friend!');
   }
 
   /**
@@ -65,10 +66,10 @@ export class SeguridadService {
   * fue almacenada correctamente
   */
    guardarDatosSesion(datosSesion: any) {
-    let sesionActual = localStorage.getItem('sesion');
-    let data: Usuario = {
-    _id: datosSesion.user_id,
-    token:datosSesion.token,
+    const sesionActual = localStorage.getItem('sesion');
+    const data: Usuario = {
+      _id: datosSesion.user_id,
+      token: datosSesion.token,
     };
     localStorage.setItem('sesion', JSON.stringify(data));
     this.setUsuario(data);
@@ -88,7 +89,7 @@ export class SeguridadService {
   * existe información de un usuario previamente logueado
   */
   verificarSesionActual() {
-    let sesionActual = this.getDatosSesion();
+    const sesionActual = this.getDatosSesion();
     if (sesionActual) {
       this.setUsuario(JSON.parse(sesionActual));
     }
@@ -99,7 +100,7 @@ export class SeguridadService {
   * @returns
   */
   sesionExiste(): boolean {
-    let sesionActual = this.getDatosSesion();
+    const sesionActual = this.getDatosSesion();
     return (sesionActual) ? true : false;
   }
 
@@ -109,7 +110,7 @@ export class SeguridadService {
   * @returns
   */
   getDatosSesion() {
-    let sesionActual = localStorage.getItem('sesion');
+    const sesionActual = localStorage.getItem('sesion');
     return sesionActual;
   }
 }
