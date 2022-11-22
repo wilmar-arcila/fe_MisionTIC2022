@@ -12,11 +12,11 @@ import { Usuario } from '../modelos/usuario.model';
 
 export class SeguridadService {
   elUsuario = new BehaviorSubject<Usuario>(new Usuario);
-  constructor(private http: HttpClient, private router: Router) { 
+  constructor(private http: HttpClient, private router: Router) {
     this.verificarSesionActual();
   }
 
-  public sayHello(){
+  public sayHello() {
     console.log('>> Say hello to my little friend!');
   }
 

@@ -11,20 +11,20 @@ import { SeguridadService } from '../../../servicios/seguridad.service';
   styleUrls: ['./login.component.scss'],
 })
 
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
-  email: string='';
-  contrasena: string='';
-  constructor(private miServicioSeguridad : SeguridadService, private router: Router) { }
+  email: string = '';
+  contrasena: string = '';
+  constructor(private miServicioSeguridad: SeguridadService, private router: Router) { }
 
   ngOnInit(): void {
     console.log('LOGIN inicializado');
   }
 
-  login():void{
-    console.log("aqui"+this.email+" contraseña "+this.contrasena);
+  login(): void {
+    console.log('aqui' + this.email + ' contraseña ' + this.contrasena);
   }
-  test():void{
+  test(): void {
     console.log('TEST');
     this.miServicioSeguridad.sayHello();
   }
