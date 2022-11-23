@@ -26,8 +26,8 @@ export class TokenInterceptor implements HttpInterceptor {
       console.debug('TOKEN: ' + this.miServicioSeguridad.usuarioSesionActiva.token);
       request = request.clone({
                               setHeaders: {
-                                Authorization: `Bearer ${this.miServicioSeguridad.usuarioSesionActiva.token}`
-                              }
+                                Authorization: `Bearer ${this.miServicioSeguridad.usuarioSesionActiva.token}`,
+                              },
       });
     }
     return next.handle(request).pipe(
@@ -37,7 +37,7 @@ export class TokenInterceptor implements HttpInterceptor {
                                         this.router.navigateByUrl('/pages/dashboard');
                                       }
                                       return throwError(err);
-        })
+        }),
       );
   }
 }

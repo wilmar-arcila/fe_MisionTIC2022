@@ -93,7 +93,7 @@ export class SeguridadService {
   verificarSesionActual() {
     console.debug('Seguridad->verificarSesionActual');
     const sesionActual = this.getDatosSesion();
-    console.debug(sesionActual)
+    console.debug(sesionActual);
     if (sesionActual) {
       this.setUsuario(JSON.parse(sesionActual));
     }

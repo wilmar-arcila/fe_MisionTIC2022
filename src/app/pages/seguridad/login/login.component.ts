@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import  Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 import { Usuario } from '../../../modelos/usuario.model';
 import { SeguridadService } from '../../../servicios/seguridad.service';
@@ -24,23 +24,23 @@ export class LoginComponent implements OnInit {
   login(): void {
     console.debug('e-mail: ' + this.email + ' contraseña: ' + this.contrasena);
 
-    let elUsuario: Usuario = {
+    const elUsuario: Usuario = {
                                 email: this.email,
-                                contrasena: this.contrasena
-                              }
+                                contrasena: this.contrasena,
+                              };
     this.miServicioSeguridad.login(elUsuario).subscribe(
-      data=>{
+      data => {
               this.router.navigate(['pages/dashboard']);
               this.miServicioSeguridad.guardarDatosSesion(data);
             },
-      error=>{
+      error => {
               Swal.fire({
                 title: 'Error Login',
-                text: error["error"]["message"],
+                text: error['error']['message'],
                 icon: 'error',
-                timer:5000
+                timer:5000,
               });
-            }
+            },
     );
   }
 

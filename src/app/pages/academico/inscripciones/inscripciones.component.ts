@@ -6,11 +6,11 @@ import { InscripcionService } from '../../../servicios/inscripcion.service';
 @Component({
   selector: 'ngx-inscripciones',
   templateUrl: './inscripciones.component.html',
-  styleUrls: ['./inscripciones.component.scss']
+  styleUrls: ['./inscripciones.component.scss'],
 })
 export class InscripcionesComponent implements OnInit {
-  inscripciones : Inscripcion[];
-  nombresColumnas: string[] = ['Año','Semestre','Estudiante','Materia', 'Nota final', 'Opciones'];
+  inscripciones: Inscripcion[];
+  nombresColumnas: string[] = ['Año', 'Semestre', 'Estudiante', 'Materia', 'Nota final', 'Opciones'];
 
   constructor(private miServicioInscripcion: InscripcionService) { }
 
@@ -19,34 +19,34 @@ export class InscripcionesComponent implements OnInit {
     this.listar();
   }
 
-  listar():void{
+  listar(): void {
     console.debug('>>inscripciones->listar');
     this.miServicioInscripcion.listar().subscribe(
           data => {
-                  this.inscripciones=data;
+                  this.inscripciones = data;
                   console.debug(this.inscripciones);
-                  }
+                  },
     );
   }
 
-  agregar(): void{
+  agregar(): void {
     console.debug('>>inscripciones->agregar');
   }
 
-  editar(id: string): void{
+  editar(id: string): void {
     console.debug('>>inscripciones->editar ' + id);
   }
 
-  eliminar(id: string): void{
+  eliminar(id: string): void {
     console.debug('>>inscripciones->eliminar');
     Swal.fire({
                 title: 'Eliminar Inscripción',
-                text: "¿Está seguro que quiere eliminar la inscripción?",
+                text: '¿Está seguro que quiere eliminar la inscripción?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, eliminar'
+                confirmButtonText: 'Si, eliminar',
       }).then(
         (result) => {
                       if (result.isConfirmed) {
@@ -55,14 +55,14 @@ export class InscripcionesComponent implements OnInit {
                                     Swal.fire(
                                               'Eliminado!',
                                               'La inscripción ha sido eliminada correctamente',
-                                              'success'
-                                    )
+                                              'success',
+                                    );
                                     this.ngOnInit();
                           // }
                         // );
                       }
-                    }
-      )
+                    },
+      );
   }
 
 }

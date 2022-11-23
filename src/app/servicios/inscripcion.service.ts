@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { Inscripcion } from '../modelos/inscripcion.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InscripcionService {
 
@@ -18,10 +18,10 @@ export class InscripcionService {
     console.debug('Listar Inscripciones: ' + url);
     return this.http.get<Inscripcion[]>(url);
   }
-  
-  eliminar(id: string){
+
+  eliminar(id: string) {
     const url = `${environment.url_gateway}/inscripciones/${id}`;
     console.debug('Eliminar Inscripciones: ' + url);
-    return this.http.delete<Inscripcion>(url,);
+    return this.http.delete<Inscripcion>(url);
   }
 }

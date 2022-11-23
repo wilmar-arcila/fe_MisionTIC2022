@@ -8,12 +8,12 @@ import { NbCardModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
-    InscripcionesComponent
+    InscripcionesComponent,
   ],
   imports: [
     CommonModule,
     AcademicoRoutingModule,
     NbCardModule,
-  ]
+  ],
 })
 export class AcademicoModule { }
