@@ -11,6 +11,7 @@ import { InscripcionService } from '../../../servicios/inscripcion.service';
 export class InscripcionesComponent implements OnInit {
   inscripciones: Inscripcion[];
   nombresColumnas: string[] = ['Año', 'Semestre', 'Estudiante', 'Materia', 'Nota final', 'Opciones'];
+  a$os: string[] = [];
 
   constructor(private miServicioInscripcion: InscripcionService) { }
 
@@ -25,6 +26,8 @@ export class InscripcionesComponent implements OnInit {
           data => {
                   this.inscripciones = data;
                   console.debug(this.inscripciones);
+                  this.inscripciones.forEach(element => this.a$os.push(element.año));
+                  console.debug(this.a$os);
                   },
     );
   }
