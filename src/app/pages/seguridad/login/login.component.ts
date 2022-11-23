@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
                 title: 'Error Login',
                 text: error['error']['message'],
                 icon: 'error',
-                timer:5000,
+                timer: 5000,
               });
             },
     );
