@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Inscripcion } from '../../../modelos/inscripcion.model';
 import { InscripcionService } from '../../../servicios/inscripcion.service';
@@ -13,7 +14,7 @@ export class InscripcionesComponent implements OnInit {
   nombresColumnas: string[] = ['Año', 'Semestre', 'Estudiante', 'Materia', 'Nota final', 'Opciones'];
   a$os: string[] = [];
 
-  constructor(private miServicioInscripcion: InscripcionService) { }
+  constructor(private miServicioInscripcion: InscripcionService, private router: Router) { }
 
   ngOnInit(): void {
     console.debug('INSCRIPCIONES');
@@ -34,10 +35,12 @@ export class InscripcionesComponent implements OnInit {
 
   agregar(): void {
     console.debug('>>inscripciones->agregar');
+    this.router.navigate(['pages/academico/inscripciones/crear']);
   }
 
   editar(id: string): void {
     console.debug('>>inscripciones->editar ' + id);
+    this.router.navigate(['pages/academico/inscripciones/actualizar/'+id]);
   }
 
   eliminar(id: string): void {

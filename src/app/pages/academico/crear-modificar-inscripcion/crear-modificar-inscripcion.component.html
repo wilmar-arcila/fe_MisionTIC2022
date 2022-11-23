@@ -1,0 +1,44 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">CREAR INSCRIPCIÓN</nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">ACTUALIZAR INSCRIPCIÓN</nb-card-header>
+
+    <nb-card-body>
+    <div class="row">
+        <div class="col-3">
+            <label>Cedula</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [disabled]="!modoCreacion" [(ngModel)]="inscripcion.estudiante">
+            <p *ngIf="intentoEnvio && inscripcion.estudiante==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <label>Nombre</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [(ngModel)]="inscripcion.materia">
+            <p *ngIf="intentoEnvio && inscripcion.materia==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <label>Apellido</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" [(ngModel)]="inscripcion.nota_final">
+            <p *ngIf="intentoEnvio && inscripcion.nota_final==''">Requerido</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+    <button *ngIf="modoCreacion" class="btn btn-primary btn-block" (click)="agregar()">Crear</button>
+    <button *ngIf="!modoCreacion" class="btn btn-primary btn-block" (click)="editar()">Actualizar</button>
+    </div>
+    </nb-card-body>
+
+    </nb-card>
+</div>

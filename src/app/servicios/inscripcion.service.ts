@@ -19,6 +19,24 @@ export class InscripcionService {
     return this.http.get<Inscripcion[]>(url);
   }
 
+  getEstudiante(id: string): Observable<Inscripcion> {
+    const url = `${environment.url_gateway}/inscripciones/${id}`;
+    console.debug('Listar Inscripcion: ' + url);
+    return this.http.get<Inscripcion>(url);
+  }
+
+  crear(elEstudiante: Inscripcion) {
+    const url = `${environment.url_gateway}/inscripciones`;
+    console.debug('Crear Inscripcion: ' + url + elEstudiante);
+    return this.http.post(url, elEstudiante);
+  }
+
+  editar(id: string, elEstudiante: Inscripcion) {
+    const url = `${environment.url_gateway}/inscripciones/${id}`;
+    console.debug('Editar Inscripcion: ' + url + elEstudiante);
+    return this.http.put(url, elEstudiante);
+  }
+
   eliminar(id: string) {
     const url = `${environment.url_gateway}/inscripciones/${id}`;
     console.debug('Eliminar Inscripciones: ' + url);
