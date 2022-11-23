@@ -16,6 +16,11 @@ const routes: Routes = [{
       .then(m => m.SeguridadModule),
     },
     {
+      path: 'academico',
+      loadChildren: () => import('./academico/academico.module')
+      .then(m => m.AcademicoModule),
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
