@@ -26,7 +26,8 @@ export class SeguridadService {
   * para acceder a la información del token
   */
   public get usuarioSesionActiva(): Usuario {
-      return this.elUsuario.value;
+    console.debug('Seguridad->usuarioSesionActiva: ' + this.elUsuario.value);
+    return this.elUsuario.value;
   }
 
   /**
@@ -44,6 +45,7 @@ export class SeguridadService {
   * @returns
   */
   getUsuario() {
+    console.debug('Seguridad->getUsuario: ' + this.elUsuario.asObservable);
     return this.elUsuario.asObservable();
   }
 
@@ -89,7 +91,9 @@ export class SeguridadService {
   * existe información de un usuario previamente logueado
   */
   verificarSesionActual() {
+    console.debug('Seguridad->verificarSesionActual');
     const sesionActual = this.getDatosSesion();
+    console.debug(sesionActual)
     if (sesionActual) {
       this.setUsuario(JSON.parse(sesionActual));
     }
