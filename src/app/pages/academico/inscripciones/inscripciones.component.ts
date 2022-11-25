@@ -40,7 +40,7 @@ export class InscripcionesComponent implements OnInit {
 
   editar(id: string): void {
     console.debug('>>inscripciones->editar ' + id);
-    this.router.navigate(['pages/academico/inscripciones/actualizar/'+id]);
+    this.router.navigate(['pages/academico/inscripciones/actualizar/' + id]);
   }
 
   eliminar(id: string): void {

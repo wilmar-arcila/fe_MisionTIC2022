@@ -5,10 +5,11 @@ import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { NbCardModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
-  declarations: [ LoginComponent],
+  declarations: [ LoginComponent, LogoutComponent],
   imports: [
     CommonModule,
     SeguridadRoutingModule,
